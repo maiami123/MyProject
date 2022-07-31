@@ -1,0 +1,49 @@
+{
+  "editor.formatOnSave": true,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vetur.format.defaultFormatter.html": "prettier",
+  "vetur.format.defaultFormatter.js": "prettier",
+  "vetur.format.defaultFormatter.less": "prettier",
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "printWidth": 80,
+      "singleQuote": true, // 使用單引號
+      "semi": true, // 末尾使用分號
+      "tabWidth": 2,
+      "arrowParens": "avoid",
+      "bracketSpacing": true,
+      "proseWrap": "preserve" // 代碼超出是否要換行 preserve保留
+    }
+  },
+  /*  prettier的配置 */
+  "prettier.printWidth": 100, // 超過最大值換行
+  "prettier.tabWidth": 2, // 縮進字節數
+  // "prettier.useTabs": false, // 縮進不使用tab，使用空格
+  "prettier.semi": true, // 句尾添加分號
+  "prettier.singleQuote": true, // 使用單引號代替雙引號
+  "prettier.proseWrap": "preserve", // 默認值。因為使用了一些折行敏感型的渲染器（如GitHub comment）而按照markdown文本樣式進行折行
+  "prettier.arrowParens": "avoid", //  (x) => {} 箭頭函數參數只有一個時是否要有小括號。avoid：省略括號
+  "prettier.bracketSpacing": true, // 在對象，數組括號與文字之間加空格 "{ foo: bar }"
+  // "prettier.disableLanguages": ["vue"], // 不格式化vue文件，vue文件的格式化單獨設置
+  "prettier.endOfLine": "auto", // 結尾是 \n \r \n\r auto
+  "prettier.eslintIntegration": false, //不讓prettier使用eslint的代碼格式進行校驗
+  "prettier.htmlWhitespaceSensitivity": "ignore",
+  "prettier.ignorePath": ".prettierignore", // 不使用prettier格式化的文件填寫在項目的.prettierignore文件中
+  "prettier.jsxBracketSameLine": false, // 在jsx中把'>' 是否單獨放一行
+  "prettier.jsxSingleQuote": false, // 在jsx中使用單引號代替雙引號
+  "prettier.parser": "babylon", // 格式化的解析器，默認是babylon
+  "prettier.requireConfig": false, // Require a 'prettierconfig' to format prettier
+  "prettier.stylelintIntegration": false, //不讓prettier使用stylelint的代碼格式進行校驗
+  "prettier.trailingComma": "es5", // 在對象或數組最後一個元素後面是否加逗號（在ES5中加尾逗號）
+  "prettier.tslintIntegration": false,
+  "editor.tabSize": 2,
+  "editor.semanticTokenColorCustomizations": {
+  
+  },
+  "json.schemas": [
+  
+  
+  ] // 不讓prettier使用tslint的代碼格式進行校驗
+}
