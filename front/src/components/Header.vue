@@ -4,11 +4,11 @@
       <el-icon
         size="30px"
         @click="handleCollapse"
-        :style="{ transform: isCollapse ? '' : 'rotate(180deg)' }"
+        :style="{ transform: isCollapse ? '' : 'rotate(180deg)', cursor: 'pointer' }"
       >
         <Expand />
       </el-icon>
-      <span>首頁</span>
+      <span>MENU</span>
     </div>
     <div class="user" @mouseenter="isShowUserInfo('show')" @mouseleave="isShowUserInfo('leave')">
       <img :src="userInfo.headImg" />

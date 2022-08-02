@@ -1,14 +1,14 @@
 <template>
   <div class="pagination">
-    <div class="pre" @click="currentChange('pre')">上一页</div>
-    <div class="next" @click="currentChange('next')">下一页</div>
+    <div class="pre" @click="currentChange('pre')">上一頁</div>
+    <div class="next" @click="currentChange('next')">下一頁</div>
   </div>
 </template>
 <script setup>
 import { defineProps } from 'vue';
-const { currentChange } = defineProps(['currentChange'])
+const { currentChange } = defineProps(['currentChange']);
 </script>
-<style lang='less' scoped>
+<style lang="less" scoped>
 .pagination {
   display: flex;
   justify-content: center;

@@ -4,18 +4,18 @@
     active-text-color="#ffd04b"
     background-color="#545c64"
     text-color="#fff"
-    a
+    :router="true"
     :collapse="isCollapse"
   >
     <div class="xd-icon">
-      <img src="../assets/trytry.png" />
+      <img class="logo" src="../assets/trytry.png" @click="router.push('/home')" />
     </div>
     <el-sub-menu index="1">
       <template #title>
         <el-icon><Document /></el-icon>
         <span>第一管理</span>
       </template>
-      <el-menu-item index="1-1">第一</el-menu-item>
+      <el-menu-item index="searchSomething">查詢功能展示</el-menu-item>
       <el-menu-item index="1-2">第二</el-menu-item>
       <el-menu-item index="1-3">第三</el-menu-item>
     </el-sub-menu>
@@ -32,6 +32,7 @@
 </template>
 
 <script setup>
+import router from '@/router';
 const { isCollapse } = defineProps(['isCollapse']);
 </script>
 
@@ -64,5 +65,8 @@ const { isCollapse } = defineProps(['isCollapse']);
     height: 150px;
     margin-right: 10px;
   }
+}
+.logo {
+  cursor: pointer;
 }
 </style>

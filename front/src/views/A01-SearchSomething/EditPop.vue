@@ -1,15 +1,15 @@
 <template>
-  <el-dialog title="编辑" v-model="popShow" width="30%" center :show-close="false">
+  <el-dialog title="編輯" v-model="popShow" width="30%" center :show-close="false">
     <el-form :model="editData" ref="ruleFromRef">
-      <el-form-item label="课程标题" prop="title" required>
+      <el-form-item label="課程標題" prop="title" required>
         <el-input v-model="editData.title" />
       </el-form-item>
-      <el-form-item label="课程价格" prop="price" required>
+      <el-form-item label="課程價格" prop="price" required>
         <el-input v-model="editData.price" />
       </el-form-item>
       <el-form-item>
         <el-button @click="confirmClick('cancel')">取消</el-button>
-        <el-button type="primary" @click="submitForm(ruleFromRef)">确认</el-button>
+        <el-button type="primary" @click="submitForm(ruleFromRef)">確認</el-button>
       </el-form-item>
     </el-form>
   </el-dialog>
@@ -18,7 +18,7 @@
 import { defineProps, reactive, ref } from 'vue';
 const { popShow, message, confirmClick } = defineProps(['popShow', 'message', 'confirmClick']);
 /**
- * 编辑组件维护的数据
+ * 編輯組件維護的數據
  */
 const editData = reactive({
   title: message.title,
@@ -26,7 +26,7 @@ const editData = reactive({
   id: message.id,
 });
 /**
- * 表单校验
+ * 表單校驗
  */
 const ruleFromRef = ref(null);
 const submitForm = async formEl => {

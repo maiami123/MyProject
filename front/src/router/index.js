@@ -10,19 +10,29 @@ const router = createRouter({
       redirect: '/login',
     },
     {
-      path: '/home',
-      component: () => import('../views/Home'),
-      meta: {
-        isAuth: true,
-      },
-    },
-    {
       path: '/login',
       component: () => import('../views/Login'),
     },
     {
       path: '/register',
       component: () => import('../views/Register'),
+    },
+    //首頁
+    {
+      path: '/home',
+      component: () => import('../views/Home'),
+      meta: {
+        isAuth: true,
+      },
+    },
+      //搜尋功能頁
+      {
+        path: '/searchSomething',
+        component: () => import('../views/A01-SearchSomething/SearchSomething'),
+        meta: {
+          isAuth: true,
+        },
+
     },
   ],
 });

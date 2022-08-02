@@ -8,18 +8,19 @@
         <el-header>
           <Header :handleCollapse="handleCollapse" :isCollapse="isCollapse" />
         </el-header>
-        <!-- <el-main>
+        <el-main>
           <Main />
-        </el-main> -->
+        </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script setup>
-import Header from '../components/Header.vue';
-import Aside from '../components/Aside.vue';
-import router from '../router';
+import Header from '../../components/Header.vue';
+import Aside from '../../components/Aside.vue';
+import Main from './Main.vue';
+import router from '../../router';
 import { ref } from 'vue';
 
 const isCollapse = ref(false);
