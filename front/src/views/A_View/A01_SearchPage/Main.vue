@@ -19,7 +19,7 @@
 <script setup>
 import Table from './Table.vue';
 import EditPop from './EditPop.vue';
-import Pagination from '../../components/Pagination.vue';
+import Pagination from '../../../components/Pagination.vue';
 import { reactive, ref, computed } from 'vue';
 /**
  * 初始化的數據

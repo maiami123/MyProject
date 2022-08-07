@@ -1,0 +1,192 @@
+body {
+  /* 初始化內外邊距 */
+  margin: 0;
+  padding: 0;
+}
+#container {
+  /* 窗口高度100% */
+  height: 100vh;
+}
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.clockMode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clock {
+  width: 700px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  z-index: 1;
+  border-radius: 50px;
+}
+.time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.time h2 {
+  font-size: 6em;
+  color: #fff;
+  cursor: default;
+}
+
+.time h2:nth-child(odd) {
+  padding: 5px 15px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  margin: 0 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.time h2:nth-child(odd):hover {
+  padding: 5px 15px;
+  border-radius: 20px;
+  background: rgba(190, 181, 181, 0.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  margin: 0 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+#ampm {
+  position: relative;
+  top: -50px;
+  font-size: 2em;
+  color: #fff;
+}
+
+.sun {
+  margin: 0;
+  padding: 0;
+  /* 絕對定位＋水平居中 */
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background-color: orange;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+.moon {
+  margin: 0;
+  padding: 0;
+  /* 絕對定位+水平居中 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 計算月亮位置 */
+  transform: translate(calc(-50% + -160px), calc(-50% + -180px));
+  width: 600px;
+  height: 600px;
+  /* 用陰影畫出月亮 */
+  box-shadow: 160px 180px 0 cyan;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+.sea {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  /* 製造海面模糊倒影 */
+  backdrop-filter: blur(100px);
+  -webkit-backdrop-filter: blur(100px);
+  z-index: 100;
+}
+.wave {
+  position: fixed;
+  bottom: 28%;
+  width: 100%;
+  height: 5%;
+  background: url(../assets/wave.png);
+  background-size: 700px 50px;
+  opacity: 0.2;
+  animation: animate 30s linear infinite;
+}
+@keyframes animate {
+  0% {
+    background-position: 300px;
+  }
+  100% {
+    background-position: 800px;
+  }
+}
+.sun,
+.moon,
+.sun-box,
+.moon-box,
+.bg {
+  /* 動畫過場 */
+  transition: all 1s ease-in-out;
+}
+.sun-box,
+.moon-box {
+  /* 相對位置 */
+  position: relative;
+  /* 超出隱藏 */
+  overflow: hidden;
+}
+
+/* 白天 */
+.light .sun-box {
+  height: 100%;
+}
+
+.light .moon-box {
+  height: 0;
+}
+
+.light .bg {
+  background-color: #ffeea2;
+}
+
+/* 夜晚 */
+.dark .sun-box {
+  height: 0%;
+}
+.dark .moon-box {
+  height: 100%;
+}
+.dark .bg {
+  background-color: #040720;
+}
+
+.btn-box {
+  margin: 5px;
+  z-index: 101;
+  display: flex;
+  flex-direction: row;
+}
+
+/* 切換按鈕 */
+.btn-box div {
+  background: rgba(255, 255, 255, 0.7);
+  color: #000;
+  width: 90px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-box div:hover {
+  background: #fff;
+}

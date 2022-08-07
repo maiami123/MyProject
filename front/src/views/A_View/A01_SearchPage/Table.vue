@@ -41,4 +41,8 @@ const tableRowClassName = ({ rowIndex }) => {
   width: 150px;
   height: 100px;
 }
+
+.el-table__header-wrapper {
+  position: absolute !important;
+}
 </style>

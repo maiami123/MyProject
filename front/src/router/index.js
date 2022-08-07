@@ -25,14 +25,38 @@ const router = createRouter({
         isAuth: true,
       },
     },
-      //搜尋功能頁
+    /**
+     * A__view
+     */
+
+      //A01搜尋功能頁
       {
         path: '/searchSomething',
-        component: () => import('../views/A01-SearchSomething/SearchSomething'),
+        component: () => import('../views/A_View/A01_SearchPage/SearchPageMain.vue'),
         meta: {
           isAuth: true,
         },
+    },
 
+    /**
+     * Z_view
+     */
+
+    //Z01用戶權限
+    {
+      path: '/auth',
+      component: () => import('../views/Z_View/Z01_Auth/AuthMain.vue'),
+      meta: {
+        isAuth: true,
+      },
+    },
+    //Z02帳號設置
+    {
+      path: '/account',
+      component: () => import('../views/Z_View/Z02_Account/AccountMain.vue'),
+      meta: {
+        isAuth: true,
+      },
     },
   ],
 });

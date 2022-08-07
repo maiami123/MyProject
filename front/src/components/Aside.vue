@@ -22,11 +22,19 @@
 
     <el-sub-menu index="2">
       <template #title>
+        <el-icon><Place /></el-icon>
+        <span>三維世界</span>
+      </template>
+      <el-menu-item index="3D_Base">立方體</el-menu-item>
+    </el-sub-menu>
+
+    <el-sub-menu index="99">
+      <template #title>
         <el-icon><setting /></el-icon>
         <span>用戶管理</span>
       </template>
-      <el-menu-item index="2-1">用戶權限</el-menu-item>
-      <el-menu-item index="2-2">帳號密碼</el-menu-item>
+      <el-menu-item index="auth">用戶權限</el-menu-item>
+      <el-menu-item index="account">帳號設置</el-menu-item>
     </el-sub-menu>
   </el-menu>
 </template>

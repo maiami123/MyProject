@@ -1,51 +1,102 @@
 <template>
-  <div class="home">
-    <el-container>
-      <el-aside width="200px">
-        <Aside :isCollapse="isCollapse" />
-      </el-aside>
-      <el-container>
-        <el-header>
-          <Header :handleCollapse="handleCollapse" :isCollapse="isCollapse" />
-        </el-header>
-        <!-- <el-main>
-          <Main />
-        </el-main> -->
-      </el-container>
-    </el-container>
-  </div>
+  <PageMain :handleMode="classMode">
+    <div class="btn-box">
+      <div @click="change('light')">
+        <el-icon>
+          <Sunrise />
+        </el-icon>
+        照耀模式
+      </div>
+
+      <div @click="change('dark')">
+        <el-icon>
+          <MoonNight />
+        </el-icon>
+        夜幕模式
+      </div>
+    </div>
+
+    <div class="clockMode">
+      <div class="clock">
+        <div class="time">
+          <h2 id="hour">{{ baseData.Data.hour }}</h2>
+          <h2 class="dot">:</h2>
+          <h2 id="minute">{{ baseData.Data.minute }}</h2>
+          <h2 class="dot">:</h2>
+          <h2 class="seconds">{{ baseData.Data.seconds }}</h2>
+          <span id="ampm">{{ baseData.Data.ampm }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div :class="classMode" id="container">
+      <div class="bg"></div>
+
+      <div class="moon-box">
+        <div class="moon"></div>
+      </div>
+
+      <div class="sun-box">
+        <div class="sun"></div>
+      </div>
+
+      <div class="wave"></div>
+      <div class="sea"></div>
+    </div>
+  </PageMain>
 </template>
 
 <script setup>
-import Header from '../components/Header.vue';
-import Aside from '../components/Aside.vue';
-import router from '../router';
-import { ref } from 'vue';
+import { ref } from '@vue/reactivity';
+import PageMain from '../components/PageMain.vue';
+import { useStore } from 'vuex';
+import '../style/home.css';
+import { reactive } from '@vue/reactivity';
+import moment from 'moment';
+import { onMounted } from '@vue/runtime-core';
 
-const isCollapse = ref(false);
-const handleCollapse = () => {
-  isCollapse.value = !isCollapse.value;
+/**
+ * mounted
+ */
+onMounted(() => {
+  //Time
+  const timer = setInterval(() => {
+    baseData.Data.hour = moment(new Date()).format('HH');
+
+    baseData.Data.minute = moment(new Date()).format('mm');
+
+    baseData.Data.seconds = moment(new Date()).format('ss');
+
+    baseData.Data.hour >= 12 ? (baseData.Data.ampm = 'PM') : (baseData.Data.ampm = 'AM');
+  }, 1000);
+});
+
+/**
+ * Data
+ */
+
+//狀態管理
+const store = useStore();
+const classMode = ref(store.state.classMode);
+const baseData = reactive({
+  Data: {
+    hour: moment(new Date()).format('HH'),
+    minute: moment(new Date()).format('mm'),
+    seconds: moment(new Date()).format('ss'),
+    ampm: '',
+  },
+});
+
+/**
+ * function
+ */
+const change = mode => {
+  classMode.value = mode;
+  setTimeout(() => {
+    store.state.classMode = mode;
+    console.log(store.state.classMode);
+  }, 1000);
 };
 </script>
 
-<style lang="less" scoped>
-.el-aside {
-  width: auto;
-  background-color: #545c64;
-  width: auto;
-  overflow: hidden;
-}
-
-.el-container {
-  height: 100vh;
-}
-
-.el-main {
-  display: flex;
-}
-
-.el-header {
-  // padding: 0 20px 0 0;
-  background-color: #fff;
-}
-</style>
+<style lang="less" scoped></style>

@@ -8,19 +8,16 @@
         <el-header>
           <Header :handleCollapse="handleCollapse" :isCollapse="isCollapse" />
         </el-header>
-        <el-main>
-          <Main />
-        </el-main>
+        <slot class="slot" />
       </el-container>
     </el-container>
   </div>
 </template>
 
 <script setup>
-import Header from '../../components/Header.vue';
-import Aside from '../../components/Aside.vue';
-import Main from './Main.vue';
-import router from '../../router';
+import Header from './Header.vue';
+import Aside from './Aside.vue';
+import router from '../router';
 import { ref } from 'vue';
 
 const isCollapse = ref(false);
@@ -35,6 +32,7 @@ const handleCollapse = () => {
   background-color: #545c64;
   width: auto;
   overflow: hidden;
+  z-index: 1;
 }
 
 .el-container {
@@ -48,5 +46,6 @@ const handleCollapse = () => {
 .el-header {
   // padding: 0 20px 0 0;
   background-color: #fff;
+  z-index: 1;
 }
 </style>

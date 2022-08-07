@@ -33,7 +33,7 @@ service.interceptors.response.use(res => {
       type: 'error',
     });
   }
-  if (message === '身份認證失敗') {
+  if (message == '身分認證失敗') {
     router.push('/login');
   }
 });
