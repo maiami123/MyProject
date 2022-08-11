@@ -19,11 +19,13 @@ const { currentChange } = defineProps(['currentChange']);
     background-color: #409eff;
     margin-right: 10px;
     padding: 5px;
+    cursor: pointer;
   }
 
   .next {
     padding: 5px;
     background-color: #409eff;
+    cursor: pointer;
   }
 }
 </style>

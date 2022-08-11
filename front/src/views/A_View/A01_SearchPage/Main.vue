@@ -28,48 +28,68 @@ const data = reactive({
   list: [
     {
       category: 'front',
-      courseImg: 'https://file.xdclass.net/video/2022/77-QD/cover.jpeg',
+      courseImg: 'https://cdn.unwire.hk/wp-content/uploads/2015/06/0604-2a-694x463.jpg',
       del: 0,
       id: 1,
       point: 9.8,
       price: '99',
-      title: '22年新版【前端高級工程師】面試專題第一季',
+      title: 'Big大漢堡',
     },
     {
       category: 'front',
-      courseImg: 'https://file.xdclass.net/video/2022/75-Vue3/cover1.jpeg',
+      courseImg: 'https://cdn2.ettoday.net/images/743/d743195.jpg',
       del: 0,
       id: 2,
       point: 9.5,
       price: '99',
-      title: '22年新版-零基礎玩轉vue3+開發仿美團外賣項目vue視頻',
+      title: '真好食港式餐廳',
     },
     {
       category: 'front',
-      courseImg: 'https://file.xdclass.net/video/2022/76-webpack5/cover.jpeg',
+      courseImg:
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStGEPS4MU8INeFv9SVc6DDYIUgMyNvapQVEhRBlihkFggUlRBXET5HNNShZC5qqvuqQYY&usqp=CAU',
       del: 0,
       id: 3,
       point: 9.3,
       price: '59',
-      title: '新版webpack5丨帶你玩轉時下最流行的構建工具',
+      title: '健康朝氣沙拉',
     },
     {
       category: 'front',
-      courseImg: 'https://file.xdclass.net/video/2021/74-git/WechatIMG3026.jpeg',
+      courseImg:
+        'https://imgsrv2.voi.id/Uo4o4rn1EfpsIYhQxqTAacGsCYG7_xOrhKgn1G5wJjM/auto/1200/675/sm/1/bG9jYWw6Ly8vcHVibGlzaGVycy83NzkyMC8yMDIxMDgyMTE3MTgtbW9iaWxlLmNyb3BwZWRfMTYyOTU0MTEwNi5qcGVn.jpg',
       del: 0,
       id: 4,
       point: 9.2,
-      price: '39',
-      title: '22年新版-玩轉Git零基礎到進階實戰 git視頻急速入門',
+      price: '109',
+      title: '豪華牛肉套餐',
     },
     {
       category: 'front',
-      courseImg: 'https://file.xdclass.net/video/2021/73-ES6/cover.jpeg',
+      courseImg: 'https://global-blog.cpcdn.com/tw/2020/02/cooked-ramen-1907228.jpg',
       del: 0,
       id: 5,
       point: 9.4,
       price: '49',
-      title: '22年新版-玩轉ECMAScript6零基礎到進階實戰es6視頻',
+      title: '老虎辣麵',
+    },
+    {
+      category: 'front',
+      courseImg: 'https://global-blog.cpcdn.com/tw/2020/02/cooked-ramen-1907228.jpg',
+      del: 0,
+      id: 6,
+      point: 9.4,
+      price: '49',
+      title: '老虎辣麵2',
+    },
+    {
+      category: 'front',
+      courseImg: 'https://global-blog.cpcdn.com/tw/2020/02/cooked-ramen-1907228.jpg',
+      del: 0,
+      id: 7,
+      point: 9.4,
+      price: '49',
+      title: '老虎辣麵3',
     },
   ],
   page: 1, //默認展示第一頁
@@ -205,7 +225,6 @@ const deleteHandle = val => {
 }
 
 :deep(.el-table__header-wrapper) {
-  position: fixed;
   z-index: 20;
 }
 

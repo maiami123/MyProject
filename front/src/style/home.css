@@ -99,19 +99,21 @@ body {
   border-radius: 50%;
   opacity: 0.5;
 }
+
 .sea {
   position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
   height: 30%;
   /* 製造海面模糊倒影 */
   backdrop-filter: blur(100px);
   -webkit-backdrop-filter: blur(100px);
-  z-index: 100;
 }
 .wave {
   position: fixed;
   bottom: 28%;
+  left: 0;
   width: 100%;
   height: 5%;
   background: url(../assets/wave.png);

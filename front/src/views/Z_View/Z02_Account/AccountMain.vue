@@ -154,7 +154,7 @@ const submit = async () => {
 }
 
 .btn-group {
-  padding: 100px;
+  padding: 5px;
   text-align: center;
 }
 .btn-sumbit {

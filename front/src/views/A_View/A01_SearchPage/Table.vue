@@ -10,7 +10,7 @@
       <el-table-column prop="price" label="價格"></el-table-column>
       <el-table-column prop="point" label="評分"></el-table-column>
       <el-table-column label="操作">
-        <template #default="scope">
+        <template class="btn-group" #default="scope">
           <el-button type="primary" @click="editClick(scope.row)">編輯</el-button>
           <el-popconfirm title="確定要刪除該課程嗎?" @confirm="deleteHandle(scope.row.id)">
             <template #reference>

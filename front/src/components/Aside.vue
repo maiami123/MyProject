@@ -13,16 +13,16 @@
     <el-sub-menu index="1">
       <template #title>
         <el-icon><Document /></el-icon>
-        <span>第一管理</span>
+        <span>資料管理</span>
       </template>
       <el-menu-item index="searchSomething">查詢功能展示</el-menu-item>
-      <el-menu-item index="1-2">第二</el-menu-item>
+      <el-menu-item index="musicTab">樂譜庫</el-menu-item>
       <el-menu-item index="1-3">第三</el-menu-item>
     </el-sub-menu>
 
     <el-sub-menu index="2">
       <template #title>
-        <el-icon><Place /></el-icon>
+        <el-icon><PieChart /></el-icon>
         <span>三維世界</span>
       </template>
       <el-menu-item index="base3D">立方體</el-menu-item>

@@ -20,7 +20,7 @@ import Aside from './Aside.vue';
 import router from '../router';
 import { ref } from 'vue';
 
-const isCollapse = ref(false);
+const isCollapse = ref(true);
 const handleCollapse = () => {
   isCollapse.value = !isCollapse.value;
 };

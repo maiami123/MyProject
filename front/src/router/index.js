@@ -37,6 +37,14 @@ const router = createRouter({
           isAuth: true,
         },
     },
+      //A02樂譜庫
+      {
+        path: '/musicTab',
+        component: () => import('../views/A_View/A02_MusicTab/index.vue'),
+        meta: {
+          isAuth: true,
+        },
+      },
 
     /**
      * B_view

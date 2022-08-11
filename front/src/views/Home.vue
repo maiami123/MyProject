@@ -39,7 +39,9 @@
       <div class="sun-box">
         <div class="sun"></div>
       </div>
+    </div>
 
+    <div class="sea-box">
       <div class="wave"></div>
       <div class="sea"></div>
     </div>
