@@ -25,7 +25,7 @@
         <el-icon><Place /></el-icon>
         <span>三維世界</span>
       </template>
-      <el-menu-item index="3D_Base">立方體</el-menu-item>
+      <el-menu-item index="base3D">立方體</el-menu-item>
     </el-sub-menu>
 
     <el-sub-menu index="99">

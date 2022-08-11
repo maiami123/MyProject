@@ -10,13 +10,19 @@
       </el-icon>
       <span>MENU</span>
     </div>
-    <div class="user" @mouseenter="isShowUserInfo('show')" @mouseleave="isShowUserInfo('leave')">
+    <div
+      class="user"
+      v-if="loginType !== 'custom'"
+      @mouseenter="isShowUserInfo('show')"
+      @mouseleave="isShowUserInfo('leave')"
+    >
       <img :src="userInfo.headImg" />
       <div class="userInfo" v-show="show">
         <div>{{ userInfo.name }}</div>
         <div @click="loginOut">退出登入</div>
       </div>
     </div>
+    <div v-else class="user">遊客模式</div>
   </div>
 </template>
 
@@ -34,13 +40,17 @@ const { handleCollapse, isCollapse } = defineProps(['handleCollapse', 'isCollaps
  */
 const show = ref(false);
 
+const loginType = ref('');
 const userInfo = reactive({ name: '', headImg: '' });
 
 /**
  * 初始化
  */
 onMounted(() => {
-  getUserInfoData();
+  loginType.value = localStorage.getItem('token');
+  if (loginType.value !== 'custom') {
+    getUserInfoData();
+  }
 });
 
 /**

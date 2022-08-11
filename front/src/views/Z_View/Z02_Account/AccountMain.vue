@@ -143,7 +143,10 @@ const submit = async () => {
 
 @keyframes animate {
   0% {
-    transform: translateY(-20px);
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
   }
   100% {
     transform: translateY(0px);

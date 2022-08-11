@@ -57,7 +57,8 @@
                   <input type="submit" @click.prevent="loginSubmit" placeholder="登入" />
                 </div>
                 <p class="forget">
-                  <a href="#/register">點擊成為會員!</a>
+                  <a @click.prevent="customLogin" style="cursor: pointer; margin: 20px">遊客登入</a>
+                  <a href="#/register">成為會員</a>
                 </p>
               </form>
             </div>
@@ -90,6 +91,10 @@ const errorMessage = reactive({
  * 函數區塊
  */
 
+const customLogin = () => {
+  localStorage.setItem('token', 'custom');
+  router.push('/Home');
+};
 //表單驗證函數
 const checkForm = () => {
   let pass = true;
@@ -120,7 +125,7 @@ const loginSubmit = async () => {
     });
     console.log(res);
     //如果登錄成功
-    if (('res', res?.token)) {
+    if (res?.token) {
       localStorage.setItem('token', res?.token);
       ElMessage({
         message: '登錄成功！！！',
@@ -223,42 +228,6 @@ section .color:nth-child(3) {
   width: 120px;
   height: 120px;
   z-index: 2;
-}
-
-.box .square:nth-child(3) {
-  bottom: 50px;
-  right: -60px;
-  width: 80px;
-  height: 80px;
-  z-index: 2;
-}
-
-.box .square:nth-child(4) {
-  bottom: -80px;
-  left: 100px;
-  width: 50px;
-  height: 50px;
-}
-
-.box .square:nth-child(5) {
-  top: -80px;
-  left: 140px;
-  width: 60px;
-  height: 60px;
-}
-
-.box .square:nth-child(6) {
-  top: 50px;
-  left: -300px;
-  width: 100px;
-  height: 100px;
-}
-
-.box .square:nth-child(7) {
-  bottom: 80px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
 }
 
 .container {

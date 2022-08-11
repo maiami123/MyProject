@@ -32,12 +32,25 @@ const router = createRouter({
       //A01搜尋功能頁
       {
         path: '/searchSomething',
-        component: () => import('../views/A_View/A01_SearchPage/SearchPageMain.vue'),
+        component: () => import('../views/A_View/A01_SearchPage/index.vue'),
         meta: {
           isAuth: true,
         },
     },
 
+    /**
+     * B_view
+     */
+        //B01 基礎3D
+        {
+          path: '/base3D',
+          component: () => import('../views/B_View/B01_Base3D/index.vue'),
+          meta: {
+            isAuth: true,
+          },
+        },
+
+        
     /**
      * Z_view
      */

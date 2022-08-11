@@ -197,7 +197,7 @@ const deleteHandle = val => {
   flex: 1;
   display: flex;
   flex-direction: column;
-
+  overflow: hidden;
   .input-with-select {
     width: 400px;
     margin-bottom: 40px;

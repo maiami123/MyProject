@@ -96,8 +96,7 @@
                   <input type="submit" @click.prevent="registerSubmit" placeholder="註冊" />
                 </div>
                 <p class="forget">
-                  已經有帳號啦!
-                  <a href="#/login">點擊返回登入!</a>
+                  <a href="#/login">已經有帳號啦!點擊返回登入!</a>
                 </p>
               </form>
             </div>
@@ -275,42 +274,6 @@ section .color:nth-child(3) {
   width: 120px;
   height: 120px;
   z-index: 2;
-}
-
-.box .square:nth-child(3) {
-  bottom: 50px;
-  right: -60px;
-  width: 80px;
-  height: 80px;
-  z-index: 2;
-}
-
-.box .square:nth-child(4) {
-  bottom: -80px;
-  left: 100px;
-  width: 50px;
-  height: 50px;
-}
-
-.box .square:nth-child(5) {
-  top: -80px;
-  left: 140px;
-  width: 60px;
-  height: 60px;
-}
-
-.box .square:nth-child(6) {
-  top: 50px;
-  left: -300px;
-  width: 100px;
-  height: 100px;
-}
-
-.box .square:nth-child(7) {
-  bottom: 80px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
 }
 
 .container {
