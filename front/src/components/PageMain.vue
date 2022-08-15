@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import Header from './Header.vue';
 import Aside from './Aside.vue';
 import router from '../router';

@@ -12,21 +12,29 @@
     </div>
     <div
       class="user"
-      v-if="loginType !== 'custom'"
-      @mouseenter="isShowUserInfo('show')"
-      @mouseleave="isShowUserInfo('leave')"
+      v-if="baseData.loginType !== 'custom'"
+      @click="isShowUserInfo(!baseData.show)"
     >
-      <img :src="userInfo.headImg" />
-      <div class="userInfo" v-show="show">
-        <div>{{ userInfo.name }}</div>
+      <img class="imgfont" :src="baseData.userInfo.headImg" />
+      <div class="userInfo" v-show="baseData.show">
+        <div>{{ baseData.userInfo.name }}</div>
         <div @click="loginOut">退出登入</div>
       </div>
     </div>
-    <div v-else class="user">遊客模式</div>
+    <div 
+    v-else 
+    class="user"
+    @click="isShowUserInfo(!baseData.show)">
+      <div class="imgfont">遊客模式</div>
+        <div class="userInfo" v-show="baseData.show">
+          <div @click="router.push('/register')">註冊帳號</div>
+          <div @click="router.push('/login')">馬上登入</div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import router from '@/router';
 import { onMounted, reactive, ref } from 'vue';
 import { getUserInfo } from '../api/index';
@@ -36,19 +44,30 @@ import { getUserInfo } from '../api/index';
 const { handleCollapse, isCollapse } = defineProps(['handleCollapse', 'isCollapse']);
 
 /**
- * 數據區塊
+ * Interface
  */
-const show = ref(false);
-
-const loginType = ref('');
-const userInfo = reactive({ name: '', headImg: '' });
+interface BaseData {
+  show:boolean,
+  loginType:string | null,
+  userInfo:{
+    name: string;
+    headImg: string;
+  },
+}
+const baseData = reactive<BaseData>({
+  show:false,
+  loginType: localStorage.getItem('token'),
+  userInfo:{
+    name: '',
+    headImg: '',
+  },
+})
 
 /**
  * 初始化
  */
 onMounted(() => {
-  loginType.value = localStorage.getItem('token');
-  if (loginType.value !== 'custom') {
+  if (baseData.loginType !== 'custom') { 
     getUserInfoData();
   }
 });
@@ -56,8 +75,8 @@ onMounted(() => {
 /**
  * 函數區塊
  */
-const isShowUserInfo = type => {
-  type == 'show' ? (show.value = true) : (show.value = false);
+const isShowUserInfo = (val:boolean)=> {
+  baseData.show = val 
 };
 
 const getUserInfoData = async () => {
@@ -65,8 +84,8 @@ const getUserInfoData = async () => {
   console.log(res);
   if (res?.data.headImg && res?.data.name) {
     console.log('ok');
-    userInfo.name = res?.data.name;
-    userInfo.headImg = res?.data.headImg;
+    baseData.userInfo.name = res?.data.name;
+    baseData.userInfo.headImg = res?.data.headImg;
   }
 };
 
@@ -83,11 +102,12 @@ const loginOut = () => {
   flex-direction: column;
   position: absolute;
   right: 0;
-  bottom: -72px;
+  bottom: -78px;
   background-color: #fff;
   border: 5px;
   box-shadow: 0 4px 8px 0 rgb(7 17 27 / 10%);
   text-align: center;
+  cursor: pointer;
 
   div:hover {
     color: #409eff;
@@ -125,5 +145,8 @@ const loginOut = () => {
       border-radius: 50%;
     }
   }
+}
+.imgfont{
+  cursor: pointer;
 }
 </style>

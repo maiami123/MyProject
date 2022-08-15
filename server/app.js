@@ -15,9 +15,9 @@ const { jwtSecretKey } = require('./config/jwtSecretKey');
 // 接口
 const userRouter = require('./router/user');
 const courseRouter = require('./router/course');
+const musicTabRouter = require('./router/A/A02/musicTab')
 
 //錯誤中間件
-
 const joi = require('joi');
 
 app.use(cors());
@@ -36,7 +36,7 @@ app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {
     return res.send({
       code: 1,
-      message: '身分認證失敗',
+      message: '身份認證失敗',
     });
   }
   res.send({ code: 1, message: err.message });
@@ -44,6 +44,9 @@ app.use((err, req, res, next) => {
 //配置接口
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/course', courseRouter);
+
+//A02
+app.use('/api/v1/musicTab', musicTabRouter);
 
 app.listen(3000, () => {
   console.log('啟動服務在:http://127.0.0.1:3000');

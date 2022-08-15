@@ -12,8 +12,12 @@ router.post('/register', expressJoi(Check.userCheck), userController.registerCon
  */
 router.post('/login', expressJoi(Check.userCheck), userController.loginController);
 /**
- * 讯息查询接口
+ * 用戶訊息
  */
 router.get('/userInfo', userController.userInfoController);
+/**
+ * item訊息
+ */
+router.post('/itemInfo', userController.itemInfoController);
 
 module.exports = router;

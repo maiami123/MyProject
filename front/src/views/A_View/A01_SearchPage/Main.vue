@@ -16,11 +16,12 @@
     :confirmClick="confirmClick"
   />
 </template>
-<script setup>
+<script lang="ts" setup>
 import Table from './Table.vue';
 import EditPop from './EditPop.vue';
 import Pagination from '../../../components/Pagination.vue';
 import { reactive, ref, computed } from 'vue';
+import { ElMessage } from 'element-plus';
 /**
  * 初始化的數據
  */
@@ -98,7 +99,7 @@ const data = reactive({
 /**
  * 分頁的邏輯
  */
-const currentChange = val => {
+const currentChange = (val:string) => {
   if (val === 'pre') {
     if (data.page > 1) {
       data.page--;
@@ -154,21 +155,24 @@ const handleClick = () => {
  */
 //編輯的數據
 const courseItemState = reactive({
-  message: {},
+  message: {
+    title:'',
+    price:''
+  },
 });
 //控制編輯彈窗的展示變量
 const popShow = ref(false);
 //控制編輯彈窗的展示方法
-const isShowPop = show => {
+const isShowPop = (show:boolean) => {
   popShow.value = show;
 };
 //編輯的按鈕
-const editClick = val => {
+const editClick = (val:any) => {
   isShowPop(true);
   courseItemState.message = val;
 };
 //取消和確認按鈕邏輯
-const confirmClick = val => {
+const confirmClick = (val:any) => {
   if (val === 'cancel') {
     isShowPop(false);
   } else if (
@@ -197,7 +201,7 @@ const confirmClick = val => {
 /**
  * 課程刪除的邏輯
  */
-const deleteHandle = val => {
+const deleteHandle = (val:number) => {
   if (val) {
     data.list = data.list.filter(item => {
       return item.id !== val;

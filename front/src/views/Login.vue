@@ -58,7 +58,7 @@
                 </div>
                 <p class="forget">
                   <a @click.prevent="customLogin" style="cursor: pointer; margin: 20px">遊客登入</a>
-                  <a href="#/register">成為會員</a>
+                  <a href="/register">成為會員</a>
                 </p>
               </form>
             </div>
@@ -69,23 +69,20 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import router from '../router/index';
 import { reactive } from '@vue/reactivity';
 import { getLogin } from '../api/index';
+import { ElMessage } from 'element-plus';
+import { baseData } from '../interface/Login.Interface';
+
 /**
  * DATA區塊
  */
 //表單數據
-const userInfo = reactive({
-  userName: '',
-  password: '',
-});
+let userInfo = baseData.userInfo;
 //錯誤訊息
-const errorMessage = reactive({
-  userName: '',
-  password: '',
-});
+let errorMessage = baseData.errorMessage;
 
 /**
  * 函數區塊
@@ -93,7 +90,7 @@ const errorMessage = reactive({
 
 const customLogin = () => {
   localStorage.setItem('token', 'custom');
-  router.push('/Home');
+  router.push('/');
 };
 //表單驗證函數
 const checkForm = () => {
@@ -127,11 +124,12 @@ const loginSubmit = async () => {
     //如果登錄成功
     if (res?.token) {
       localStorage.setItem('token', res?.token);
+      localStorage.setItem('sql_no', res?.sql_no);
       ElMessage({
         message: '登錄成功！！！',
         type: 'success',
       });
-      router.push('/home');
+      router.push('/');
     }
   }
 };

@@ -14,7 +14,7 @@
     </el-form>
   </el-dialog>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { defineProps, reactive, ref } from 'vue';
 const { popShow, message, confirmClick } = defineProps(['popShow', 'message', 'confirmClick']);
 /**
@@ -29,9 +29,9 @@ const editData = reactive({
  * 表單校驗
  */
 const ruleFromRef = ref(null);
-const submitForm = async formEl => {
+const submitForm = async (formEl:any) => {
   if (!formEl) return;
-  await formEl.validate((valid, fields) => {
+  await formEl.validate((valid: any, fields: any) => {
     if (valid) {
       confirmClick({ title: editData.title, price: editData.price, id: editData.id });
     } else {

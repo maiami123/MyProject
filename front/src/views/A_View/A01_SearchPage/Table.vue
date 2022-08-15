@@ -22,13 +22,13 @@
     </el-table>
   </div>
 </template>
-<script setup>
+<script lang="ts" setup>
 import { defineProps } from 'vue';
 const { list, editClick, deleteHandle } = defineProps(['list', 'editClick', 'deleteHandle']);
 /**
  * 定義每行課程的區分顏色
  */
-const tableRowClassName = ({ rowIndex }) => {
+const tableRowClassName = ({ rowIndex }:any) => {
   if (rowIndex % 2 === 0) {
     return 'warning-row';
   } else {

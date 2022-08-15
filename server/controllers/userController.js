@@ -81,7 +81,8 @@ exports.loginController = (req, res) => {
     }
     const user = { ...result[0], pwd: '' };
     const token = jwt.sign(user, jwtSecretKey, { expiresIn: '24h' });
-    res.send({ code: 0, message: '登入成功', token: 'Bearer ' + token });
+    const sql_no = user.sql_no
+    res.send({ code: 0, message: '登入成功', token: 'Bearer ' + token ,sql_no:sql_no});
   });
 };
 /**
@@ -92,4 +93,30 @@ exports.userInfoController = (req, res) => {
   const userInfo = jwt.verify(token.split('Bearer ')[1], jwtSecretKey);
   console.log(userInfo);
   res.send({ code: 0, data: { name: userInfo.name, headImg: userInfo.head_img } });
+};
+
+/**
+ * item查询逻辑
+ */
+ exports.itemInfoController = (req, res) => {
+  
+  console.log('*****  itemInfo  start   *****')
+  console.log(req.body)
+  const group = req.body.group
+
+  const sql = `
+  select *
+  from item
+  where item.group = '${group}'
+  `
+  db.query(sql,(err,result)=>{
+    if (err) {
+      console.log('itemInfoERR',err)
+    return res.send({ code: 1, message: err.message });
+  }
+
+  console.log('result',result)
+  console.log('*****  itemInfo  end   *****')
+  res.send({ code: 0, data: { result:result } });
+  })
 };

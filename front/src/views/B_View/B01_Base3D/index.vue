@@ -2,7 +2,7 @@
   <PageMain>123</PageMain>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import PageMain from '../../../components/PageMain.vue';
 </script>
 

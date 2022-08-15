@@ -48,7 +48,7 @@
   </PageMain>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref } from '@vue/reactivity';
 import PageMain from '../components/PageMain.vue';
 import { useStore } from 'vuex';
@@ -56,6 +56,7 @@ import '../style/home.css';
 import { reactive } from '@vue/reactivity';
 import moment from 'moment';
 import { onMounted } from '@vue/runtime-core';
+import { baseData } from '../interface/Home.Interface'
 
 /**
  * mounted
@@ -69,7 +70,7 @@ onMounted(() => {
 
     baseData.Data.seconds = moment(new Date()).format('ss');
 
-    baseData.Data.hour >= 12 ? (baseData.Data.ampm = 'PM') : (baseData.Data.ampm = 'AM');
+   Number(baseData.Data.hour) >= 12 ? (baseData.Data.ampm = 'PM') : (baseData.Data.ampm = 'AM');
   }, 1000);
 });
 
@@ -80,25 +81,17 @@ onMounted(() => {
 //狀態管理
 const store = useStore();
 const classMode = ref(store.state.classMode);
-const baseData = reactive({
-  Data: {
-    hour: moment(new Date()).format('HH'),
-    minute: moment(new Date()).format('mm'),
-    seconds: moment(new Date()).format('ss'),
-    ampm: '',
-  },
-});
 
 /**
  * function
  */
-const change = mode => {
+function change(mode:String) {
   classMode.value = mode;
   setTimeout(() => {
     store.state.classMode = mode;
     console.log(store.state.classMode);
   }, 1000);
-};
+}
 </script>
 
 <style lang="less" scoped></style>

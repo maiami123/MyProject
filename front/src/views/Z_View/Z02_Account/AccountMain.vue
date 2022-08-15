@@ -6,8 +6,6 @@
           <el-upload
             v-model:file-list="fileList"
             list-type="picture-card"
-            :on-preview="handlePictureCardPreview"
-            :on-remove="handleRemove"
             :auto-upload="false"
             :limit="1"
           >
@@ -22,9 +20,7 @@
         <el-radio-group v-model="labelPosition" label="label position"></el-radio-group>
         <div style="margin: 20px" />
         <el-form
-          :label-position="labelPosition"
           label-width="100px"
-          :model="formLabelAlign"
           style="max-width: 460px"
           class="contain"
         >
@@ -45,13 +41,15 @@
   </PageMain>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import PageMain from '../../../components/PageMain.vue';
 import { reactive, ref } from 'vue';
 import { onMounted } from '@vue/runtime-core';
 import { getUserInfo } from '../../../api';
 import router from '../../../router';
 import { toRaw } from '@vue/reactivity';
+import { ElMessageBox, ElMessage } from 'element-plus';
+import { baseData } from '../../../interface/Z/Account.Interface'
 /**
  * Mounted
  */
@@ -63,10 +61,10 @@ onMounted(() => {
  * Data
  */
 const labelPosition = ref('top');
-const userInfo = reactive({ name: '', password: '', headImg: '' });
 const dialogImageUrl = ref('');
 const dialogVisible = ref(false);
-const fileList = ref([]);
+const userInfo = baseData.userInfo
+const fileList = baseData.fileList
 
 /**
  * Function
@@ -79,7 +77,7 @@ const getUserInfoData = async () => {
     userInfo.name = res.data.name;
 
     userInfo.headImg = res.data.headImg;
-    fileList.value.push({
+    fileList.push({
       name: userInfo.name,
       url: userInfo.headImg,
     });
@@ -87,8 +85,7 @@ const getUserInfoData = async () => {
 };
 
 const submit = async () => {
-  console.log(toRaw(fileList.value)[0]?.raw);
-  let file = toRaw(fileList.value)[0]?.raw;
+  let file = toRaw(fileList)[0];
   ElMessageBox.confirm('是否要修改頭像或是密碼。', {
     confirmButtonText: '確認',
     cancelButtonText: '取消',

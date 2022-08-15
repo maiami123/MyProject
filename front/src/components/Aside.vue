@@ -8,7 +8,7 @@
     :collapse="isCollapse"
   >
     <div class="xd-icon">
-      <img class="logo" src="../assets/trytry.png" @click="router.push('/home')" />
+      <img class="logo" src="../assets/trytry.png" @click="router.push('/')" />
     </div>
     <el-sub-menu index="1">
       <template #title>
@@ -17,7 +17,7 @@
       </template>
       <el-menu-item index="searchSomething">查詢功能展示</el-menu-item>
       <el-menu-item index="musicTab">樂譜庫</el-menu-item>
-      <el-menu-item index="1-3">第三</el-menu-item>
+      <el-menu-item index="myMusic">我的樂譜</el-menu-item>
     </el-sub-menu>
 
     <el-sub-menu index="2">
@@ -39,7 +39,7 @@
   </el-menu>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import router from '@/router';
 const { isCollapse } = defineProps(['isCollapse']);
 </script>

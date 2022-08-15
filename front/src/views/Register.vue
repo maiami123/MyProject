@@ -96,7 +96,7 @@
                   <input type="submit" @click.prevent="registerSubmit" placeholder="註冊" />
                 </div>
                 <p class="forget">
-                  <a href="#/login">已經有帳號啦!點擊返回登入!</a>
+                  <a href="/login">已經有帳號啦!點擊返回登入!</a>
                 </p>
               </form>
             </div>
