@@ -11,7 +11,6 @@ const valiFunction = require('../utils/valiFunction');
  * 注册接口
  */
 exports.registerController = (req, res) => {
-  console.log(req.body);
   //判空
   let { userName, password } = req.body;
 
@@ -81,8 +80,8 @@ exports.loginController = (req, res) => {
     }
     const user = { ...result[0], pwd: '' };
     const token = jwt.sign(user, jwtSecretKey, { expiresIn: '24h' });
-    const sql_no = user.sql_no
-    res.send({ code: 0, message: '登入成功', token: 'Bearer ' + token ,sql_no:sql_no});
+    const sql_no = user.sql_no;
+    res.send({ code: 0, message: '登入成功', token: 'Bearer ' + token, sql_no: sql_no });
   });
 };
 /**
@@ -98,25 +97,22 @@ exports.userInfoController = (req, res) => {
 /**
  * item查询逻辑
  */
- exports.itemInfoController = (req, res) => {
-  
-  console.log('*****  itemInfo  start   *****')
-  console.log(req.body)
-  const group = req.body.group
+exports.itemInfoController = (req, res) => {
+  console.log('*****  itemInfo  start   *****');
+  const group = req.body.group;
 
   const sql = `
   select *
   from item
   where item.group = '${group}'
-  `
-  db.query(sql,(err,result)=>{
+  `;
+  db.query(sql, (err, result) => {
     if (err) {
-      console.log('itemInfoERR',err)
-    return res.send({ code: 1, message: err.message });
-  }
+      console.log('itemInfoERR', err);
+      return res.send({ code: 1, message: err.message });
+    }
 
-  console.log('result',result)
-  console.log('*****  itemInfo  end   *****')
-  res.send({ code: 0, data: { result:result } });
-  })
+    console.log('*****  itemInfo  end   *****');
+    res.send({ code: 0, data: { result: result } });
+  });
 };

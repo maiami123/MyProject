@@ -45,5 +45,6 @@
   "json.schemas": [
   
   
-  ] // 不讓prettier使用tslint的代碼格式進行校驗
+  ],
+  "vetur.validation.template": false // 不讓prettier使用tslint的代碼格式進行校驗
 }

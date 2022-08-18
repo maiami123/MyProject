@@ -19,11 +19,7 @@
 
         <el-radio-group v-model="labelPosition" label="label position"></el-radio-group>
         <div style="margin: 20px" />
-        <el-form
-          label-width="100px"
-          style="max-width: 460px"
-          class="contain"
-        >
+        <el-form label-width="100px" style="max-width: 460px" class="contain">
           <el-form-item label="用戶名" class="input_title">
             <el-input v-model="userInfo.name" :disabled="true" />
           </el-form-item>
@@ -33,7 +29,7 @@
         </el-form>
 
         <div class="btn-group">
-          <el-button color="#626aef" @click="router.back()" plain>取消</el-button>
+          <el-button color="#626aef" @click="router.back()" plain>返回</el-button>
           <el-button color="#626aef" class="btn-sumbit" @click="submit">修改</el-button>
         </div>
       </div>
@@ -49,7 +45,7 @@ import { getUserInfo } from '../../../api';
 import router from '../../../router';
 import { toRaw } from '@vue/reactivity';
 import { ElMessageBox, ElMessage } from 'element-plus';
-import { baseData } from '../../../interface/Z/Account.Interface'
+import { baseData } from '../../../interface/Z/Account.Interface';
 /**
  * Mounted
  */
@@ -63,8 +59,8 @@ onMounted(() => {
 const labelPosition = ref('top');
 const dialogImageUrl = ref('');
 const dialogVisible = ref(false);
-const userInfo = baseData.userInfo
-const fileList = baseData.fileList
+const userInfo = baseData.userInfo;
+const fileList = baseData.fileList;
 
 /**
  * Function
@@ -77,6 +73,7 @@ const getUserInfoData = async () => {
     userInfo.name = res.data.name;
 
     userInfo.headImg = res.data.headImg;
+    fileList.length = 0;
     fileList.push({
       name: userInfo.name,
       url: userInfo.headImg,
@@ -117,6 +114,7 @@ const submit = async () => {
 <style lang="less" scoped>
 .formBody {
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

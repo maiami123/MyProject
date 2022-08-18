@@ -36,3 +36,13 @@ export const getUserInfo = () => {
 export const getMusicTabInfoData = (data?:any) => {
   return request({ method: 'post', url: '/api/v1/musicTab/musicTabInfo',data});
 };
+
+//檢索
+export const searchMusicTabInfoData = (data?:any) => {
+  return request({ method: 'post', url: '/api/v1/musicTab/searchMusicTabInfo',data});
+};
+
+//新增刪除
+export const updateMyMusic = (data?:any) => {
+  return request({ method: 'post', url: '/api/v1/musicTab/updateMyMusic',data});
+};

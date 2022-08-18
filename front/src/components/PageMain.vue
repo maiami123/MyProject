@@ -32,7 +32,7 @@ const handleCollapse = () => {
   background-color: #545c64;
   width: auto;
   overflow: hidden;
-  z-index: 1;
+  z-index: 99;
 }
 
 .el-container {
