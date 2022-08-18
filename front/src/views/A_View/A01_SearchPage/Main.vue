@@ -29,68 +29,80 @@ const data = reactive({
   list: [
     {
       category: 'front',
-      courseImg: 'https://cdn.unwire.hk/wp-content/uploads/2015/06/0604-2a-694x463.jpg',
+      courseImg:
+        'https://i.ytimg.com/an_webp/zQGiYbdaT5U/mqdefault_6s.webp?du=3000&sqp=CM_7-JcG&rs=AOn4CLBIU4aMB7_gO4SIa4tGUj8_Js13Hw',
       del: 0,
       id: 1,
       point: 9.8,
-      price: '99',
-      title: 'Big大漢堡',
+      price: '歌唱',
+      title: '改掉咙唱歌，小白也能听懂的科学发声方法！',
+      link: 'zQGiYbdaT5U',
     },
     {
       category: 'front',
-      courseImg: 'https://cdn2.ettoday.net/images/743/d743195.jpg',
+      courseImg:
+        'https://i.ytimg.com/an_webp/NZtfVHvDk-o/mqdefault_6s.webp?du=3000&sqp=CIKE-ZcG&rs=AOn4CLCe4Tu8AOK-FVQZ5JxTYez1isiY1Q',
       del: 0,
       id: 2,
       point: 9.5,
-      price: '99',
-      title: '真好食港式餐廳',
+      price: '編曲/作曲',
+      title: '「作詞、作曲、編曲」是什麼？初學者必看｜音樂製作課 【新生訓練系列】',
+      link: 'NZtfVHvDk-o',
     },
     {
       category: 'front',
       courseImg:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStGEPS4MU8INeFv9SVc6DDYIUgMyNvapQVEhRBlihkFggUlRBXET5HNNShZC5qqvuqQYY&usqp=CAU',
+        'https://i.ytimg.com/vi/nM_Nz4gB2T8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAGNqPz4ZiZ0dqJdIwjGYZBbhIRgA',
       del: 0,
       id: 3,
       point: 9.3,
-      price: '59',
-      title: '健康朝氣沙拉',
+      price: '彈唱',
+      title: '[音樂教學] 快速學會自彈自唱方法｜用超簡單和弦教會你',
+      link: 'nM_Nz4gB2T8',
     },
     {
       category: 'front',
       courseImg:
-        'https://imgsrv2.voi.id/Uo4o4rn1EfpsIYhQxqTAacGsCYG7_xOrhKgn1G5wJjM/auto/1200/675/sm/1/bG9jYWw6Ly8vcHVibGlzaGVycy83NzkyMC8yMDIxMDgyMTE3MTgtbW9iaWxlLmNyb3BwZWRfMTYyOTU0MTEwNi5qcGVn.jpg',
+        'https://i.ytimg.com/an_webp/QybMp-OkPhM/mqdefault_6s.webp?du=3000&sqp=CIuN-ZcG&rs=AOn4CLDanwatVaI5c9_POUXM9Ob5wvTtnQ',
       del: 0,
       id: 4,
       point: 9.2,
-      price: '109',
-      title: '豪華牛肉套餐',
+      price: '吉他',
+      title: '新手必學吉他和弦-吉他初學4｜Wen吉他誌木吉他課程102',
+      link: 'QybMp-OkPhM',
     },
     {
       category: 'front',
-      courseImg: 'https://global-blog.cpcdn.com/tw/2020/02/cooked-ramen-1907228.jpg',
+      courseImg:
+        'https://i.ytimg.com/an_webp/qkt5X_4FJBY/mqdefault_6s.webp?du=3000&sqp=CL7u-JcG&rs=AOn4CLBs0WB5iGWHJaI_xN3_7bbtk6TJqA',
       del: 0,
       id: 5,
       point: 9.4,
-      price: '49',
-      title: '老虎辣麵',
+      price: '樂理',
+      title: '五線譜：一次搞懂所有你該知道的、基本的事情。',
+      link: 'qkt5X_4FJBY',
     },
     {
       category: 'front',
-      courseImg: 'https://global-blog.cpcdn.com/tw/2020/02/cooked-ramen-1907228.jpg',
+      courseImg:
+        'https://i.ytimg.com/an_webp/7ZDGgmN8atM/mqdefault_6s.webp?du=3000&sqp=CPD6-JcG&rs=AOn4CLCNq5enmtABdB99KlT0r5XObOY23g',
       del: 0,
       id: 6,
       point: 9.4,
-      price: '49',
-      title: '老虎辣麵2',
+      price: '管絃樂',
+      title: '管弦樂器懶人包：一部影片就認識最常見的管弦樂團樂器！',
+      link: '7ZDGgmN8atM',
     },
     {
       category: 'front',
-      courseImg: 'https://global-blog.cpcdn.com/tw/2020/02/cooked-ramen-1907228.jpg',
+      courseImg:
+        'https://i.ytimg.com/vi/tOohMgZoQfA/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAPMe6x_WtZQtOkyp25qnxeWDibqA',
       del: 0,
       id: 7,
       point: 9.4,
-      price: '49',
-      title: '老虎辣麵3',
+      price: '樂理',
+      title: '6415万能和弦歌曲大串烧！瞬间让多少人变成了音痴？',
+      link: 'tOohMgZoQfA',
     },
   ],
   page: 1, //默認展示第一頁
@@ -99,7 +111,7 @@ const data = reactive({
 /**
  * 分頁的邏輯
  */
-const currentChange = (val:string) => {
+const currentChange = (val: string) => {
   if (val === 'pre') {
     if (data.page > 1) {
       data.page--;
@@ -156,23 +168,23 @@ const handleClick = () => {
 //編輯的數據
 const courseItemState = reactive({
   message: {
-    title:'',
-    price:''
+    title: '',
+    price: '',
   },
 });
 //控制編輯彈窗的展示變量
 const popShow = ref(false);
 //控制編輯彈窗的展示方法
-const isShowPop = (show:boolean) => {
+const isShowPop = (show: boolean) => {
   popShow.value = show;
 };
 //編輯的按鈕
-const editClick = (val:any) => {
+const editClick = (val: any) => {
   isShowPop(true);
   courseItemState.message = val;
 };
 //取消和確認按鈕邏輯
-const confirmClick = (val:any) => {
+const confirmClick = (val: any) => {
   if (val === 'cancel') {
     isShowPop(false);
   } else if (
@@ -201,7 +213,7 @@ const confirmClick = (val:any) => {
 /**
  * 課程刪除的邏輯
  */
-const deleteHandle = (val:number) => {
+const deleteHandle = (val: number) => {
   if (val) {
     data.list = data.list.filter(item => {
       return item.id !== val;

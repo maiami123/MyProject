@@ -33,9 +33,7 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/searchSomething',
         component: () => import('../views/A_View/A01_SearchPage/index.vue'),
-        meta: {
-          isAuth: true,
-        },
+       
     },
       //A02樂譜庫
       {

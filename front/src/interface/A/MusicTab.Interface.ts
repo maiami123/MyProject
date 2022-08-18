@@ -32,9 +32,11 @@ export const tagInit:Tag= {
 export interface BaseData{
   inputValue:string
   userSqlNo?:number
+  model:string
 }
 
 export const baseDataInit:BaseData= {
   inputValue:'',
-  userSqlNo:0
+  userSqlNo:0,
+  model:'main',
 }

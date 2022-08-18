@@ -1,10 +1,10 @@
 <template>
   <el-dialog title="編輯" v-model="popShow" width="30%" center :show-close="false">
     <el-form :model="editData" ref="ruleFromRef">
-      <el-form-item label="餐廳標題" prop="title" required>
+      <el-form-item label="影片標題" prop="title" required>
         <el-input v-model="editData.title" />
       </el-form-item>
-      <el-form-item label="食物價格" prop="price" required>
+      <el-form-item label="教學種類" prop="price" required>
         <el-input v-model="editData.price" />
       </el-form-item>
       <el-form-item>
@@ -29,7 +29,7 @@ const editData = reactive({
  * 表單校驗
  */
 const ruleFromRef = ref(null);
-const submitForm = async (formEl:any) => {
+const submitForm = async (formEl: any) => {
   if (!formEl) return;
   await formEl.validate((valid: any, fields: any) => {
     if (valid) {

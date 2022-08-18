@@ -6,6 +6,7 @@
     :element-loading-spinner="svg"
     element-loading-svg-view-box="-10, -10, 50, 50"
     style="width: 100%"
+    v-if="base.model == 'main'"
   >
     <div class="searchArea">
       <div class="showSearch">
@@ -44,7 +45,9 @@
 
           <el-table-column prop="song" label="歌名" width="200px">
             <template #default="scope">
-              <div class="name">{{ tableData[scope.$index].song }}</div>
+              <div class="name" @click="handleMusicTag(tableData[scope.$index].sql_no)">
+                {{ tableData[scope.$index].song }}
+              </div>
             </template>
           </el-table-column>
 
@@ -95,12 +98,12 @@
       </el-scrollbar>
     </div>
   </div>
+  <MusicTab v-if="base.model == 'musicTab'" :handleMusicTag="handleMusicTag" />
 </template>
 
 <script lang="ts" setup>
 import { onMounted, reactive, ref } from 'vue';
 import { ElTable } from 'element-plus';
-import type { TableColumnCtx } from 'element-plus/es/components/table/src/table-column/defaults';
 import {
   TableData,
   TableDataInit,
@@ -114,6 +117,8 @@ import {
   searchMusicTabInfoData,
   updateMyMusic,
 } from '../../../api/index';
+import MusicTab from './MusicTab.vue';
+
 /**
  * computed
  */
@@ -271,6 +276,11 @@ function handColor(value: string): string {
 //檢索按鈕
 function handleClick(): void {
   init('search');
+}
+//开启乐谱
+function handleMusicTag(sql_no?: number): void {
+  console.log('in', sql_no);
+  sql_no ? (base.model = 'musicTab') : (base.model = 'main');
 }
 </script>
 
