@@ -1,12 +1,10 @@
 <template>
   <div class="home">
     <el-container>
-      <el-aside width="200px">
-        <Aside :isCollapse="isCollapse" />
-      </el-aside>
+      <el-aside width="200px"></el-aside>
       <el-container>
         <el-header>
-          <Header :handleCollapse="handleCollapse" :isCollapse="isCollapse" />
+          <Header />
         </el-header>
         <slot class="slot" />
       </el-container>
@@ -16,14 +14,8 @@
 
 <script lang="ts" setup>
 import Header from './Header.vue';
-import Aside from './Aside.vue';
 import router from '../router';
 import { ref } from 'vue';
-
-const isCollapse = ref(true);
-const handleCollapse = () => {
-  isCollapse.value = !isCollapse.value;
-};
 </script>
 
 <style lang="less" scoped>
@@ -47,5 +39,7 @@ const handleCollapse = () => {
   // padding: 0 20px 0 0;
   background-color: #fff;
   z-index: 1;
+  width: 10rem;
+  border: 1px solid #dbdbdb;
 }
 </style>

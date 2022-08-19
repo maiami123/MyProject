@@ -56,7 +56,7 @@ import '../style/home.css';
 import { reactive } from '@vue/reactivity';
 import moment from 'moment';
 import { onMounted } from '@vue/runtime-core';
-import { baseData } from '../interface/Home.Interface'
+import { baseData } from '../interface/Home.Interface';
 
 /**
  * mounted
@@ -70,7 +70,7 @@ onMounted(() => {
 
     baseData.Data.seconds = moment(new Date()).format('ss');
 
-   Number(baseData.Data.hour) >= 12 ? (baseData.Data.ampm = 'PM') : (baseData.Data.ampm = 'AM');
+    Number(baseData.Data.hour) >= 12 ? (baseData.Data.ampm = 'PM') : (baseData.Data.ampm = 'AM');
   }, 1000);
 });
 
@@ -85,7 +85,7 @@ const classMode = ref(store.state.classMode);
 /**
  * function
  */
-function change(mode:String) {
+function change(mode: String) {
   classMode.value = mode;
   setTimeout(() => {
     store.state.classMode = mode;

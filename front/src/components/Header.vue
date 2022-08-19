@@ -1,15 +1,50 @@
 <template>
   <div class="header">
-    <div class="homeIcon">
-      <el-icon
-        size="30px"
-        @click="handleCollapse"
-        :style="{ transform: isCollapse ? '' : 'rotate(180deg)', cursor: 'pointer' }"
-      >
-        <Expand />
-      </el-icon>
-      <span>MENU</span>
+    <div class="xd-icon">
+      <img class="logo" src="../assets/trytry.png" @click="router.push('/')" />
     </div>
+    <el-menu
+      :default-active="activeIndex"
+      class="el-menu-demo"
+      mode="horizontal"
+      @select="handleSelect"
+      :router="true"
+    >
+      <el-sub-menu index="1">
+        <template #title>
+          <el-icon><Menu /></el-icon>
+          選單
+        </template>
+
+        <el-sub-menu index="1-1">
+          <template #title>
+            <el-icon><Document /></el-icon>
+            資料管理
+          </template>
+          <el-menu-item index="searchSomething">查詢功能展示</el-menu-item>
+          <el-menu-item index="musicTab">樂譜庫</el-menu-item>
+          <el-menu-item index="myMusic">我的樂譜</el-menu-item>
+        </el-sub-menu>
+
+        <el-sub-menu index="2">
+          <template #title>
+            <el-icon><PieChart /></el-icon>
+            <span>三維世界</span>
+          </template>
+          <el-menu-item index="base3D">立方體</el-menu-item>
+        </el-sub-menu>
+      </el-sub-menu>
+
+      <el-sub-menu index="99">
+        <template #title>
+          <el-icon><setting /></el-icon>
+          <span>用戶管理</span>
+        </template>
+        <el-menu-item index="auth">用戶權限</el-menu-item>
+        <el-menu-item index="account">帳號設置</el-menu-item>
+      </el-sub-menu>
+    </el-menu>
+
     <div
       class="user"
       v-if="baseData.loginType !== 'custom'"
@@ -21,14 +56,11 @@
         <div @click="loginOut">退出登入</div>
       </div>
     </div>
-    <div 
-    v-else 
-    class="user"
-    @click="isShowUserInfo(!baseData.show)">
+    <div v-else class="user" @click="isShowUserInfo(!baseData.show)">
       <div class="imgfont">遊客模式</div>
-        <div class="userInfo" v-show="baseData.show">
-          <div @click="router.push('/register')">註冊帳號</div>
-          <div @click="router.push('/login')">馬上登入</div>
+      <div class="userInfo" v-show="baseData.show">
+        <div @click="router.push('/register')">註冊帳號</div>
+        <div @click="router.push('/login')">馬上登入</div>
       </div>
     </div>
   </div>
@@ -38,6 +70,9 @@
 import router from '@/router';
 import { onMounted, reactive, ref } from 'vue';
 import { getUserInfo } from '../api/index';
+
+const activeIndex = ref('1');
+const activeIndex2 = ref('1');
 /**
  * props
  */
@@ -47,27 +82,27 @@ const { handleCollapse, isCollapse } = defineProps(['handleCollapse', 'isCollaps
  * Interface
  */
 interface BaseData {
-  show:boolean,
-  loginType:string | null,
-  userInfo:{
+  show: boolean;
+  loginType: string | null;
+  userInfo: {
     name: string;
     headImg: string;
-  },
+  };
 }
 const baseData = reactive<BaseData>({
-  show:false,
+  show: false,
   loginType: localStorage.getItem('token'),
-  userInfo:{
+  userInfo: {
     name: '',
     headImg: '',
   },
-})
+});
 
 /**
  * 初始化
  */
 onMounted(() => {
-  if (baseData.loginType !== 'custom') { 
+  if (baseData.loginType !== 'custom') {
     getUserInfoData();
   }
 });
@@ -75,8 +110,13 @@ onMounted(() => {
 /**
  * 函數區塊
  */
-const isShowUserInfo = (val:boolean)=> {
-  baseData.show = val 
+
+const handleSelect = (key: string, keyPath: string[]) => {
+  console.log(key, keyPath);
+};
+
+const isShowUserInfo = (val: boolean) => {
+  baseData.show = val;
 };
 
 const getUserInfoData = async () => {
@@ -137,7 +177,7 @@ const loginOut = () => {
   .user {
     display: flex;
     justify-content: center;
-    width: 90px;
+    width: 1rem;
 
     img {
       width: 45px;
@@ -146,7 +186,15 @@ const loginOut = () => {
     }
   }
 }
-.imgfont{
+.imgfont {
+  cursor: pointer;
+}
+
+.xd-icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.logo {
   cursor: pointer;
 }
 </style>

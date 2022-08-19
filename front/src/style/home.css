@@ -5,7 +5,7 @@ body {
 }
 #container {
   /* 窗口高度100% */
-  height: 100vh;
+  height: 100%;
 }
 .bg {
   position: absolute;
@@ -19,10 +19,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
+  position:absolute;
 }
 .clock {
-  width: 700px;
-  height: 250px;
+  width: 8rem;
+  height: 3rem;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -38,7 +41,7 @@ body {
 }
 
 .time h2 {
-  font-size: 6em;
+  font-size: 1rem;
   color: #fff;
   cursor: default;
 }
@@ -54,7 +57,7 @@ body {
 }
 
 .time h2:nth-child(odd):hover {
-  padding: 5px 15px;
+  padding: 0.1rem 0.2rem;
   border-radius: 20px;
   background: rgba(190, 181, 181, 0.05);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
@@ -64,8 +67,8 @@ body {
 }
 #ampm {
   position: relative;
-  top: -50px;
-  font-size: 2em;
+  top: -0.5rem;
+  font-size: 0.5rem;
   color: #fff;
 }
 
@@ -170,10 +173,10 @@ body {
 }
 
 .btn-box {
-  margin: 5px;
-  z-index: 101;
+  z-index: 2;
   display: flex;
   flex-direction: row;
+  width: 200px
 }
 
 /* 切換按鈕 */
