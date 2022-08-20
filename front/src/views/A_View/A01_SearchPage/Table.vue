@@ -78,8 +78,8 @@ function viedoMadelShow(val: any): void {
 </script>
 <style lang="less" scoped>
 .courseImg-img {
-  width: 150px;
-  height: 100px;
+  width: 1.5rem;
+  height: 1.2rem;
   cursor: pointer;
 }
 
@@ -88,5 +88,11 @@ function viedoMadelShow(val: any): void {
 }
 :deep(.el-dialog__body) {
   background-color: #000000fc;
+}
+:deep(.el-table__header) {
+  width: unset !important;
+}
+:deep(.el-table) {
+  position: sticky;
 }
 </style>

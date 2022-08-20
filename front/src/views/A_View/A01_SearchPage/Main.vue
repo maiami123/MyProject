@@ -249,11 +249,10 @@ const deleteHandle = (val: number) => {
 }
 
 :deep(.el-table__body-wrapper) {
-  margin-top: 40px;
 }
 
 :deep(.el-input__inner) {
-  width: 300px;
+  width: 100%;
   margin-right: 10px;
 }
 
@@ -263,7 +262,6 @@ const deleteHandle = (val: number) => {
 }
 
 .table {
-  height: 100%;
   width: 100%;
   overflow: hidden;
   overflow-y: scroll;

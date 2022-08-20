@@ -9,10 +9,6 @@
           <div class="square" style="--i: 0"></div>
           <div class="square" style="--i: 1"></div>
           <div class="square" style="--i: 2"></div>
-          <div class="square" style="--i: 3"></div>
-          <div class="square" style="--i: 4"></div>
-          <div class="square" style="--i: 5"></div>
-          <div class="square" style="--i: 6"></div>
           <div class="container">
             <div class="form">
               <h2>登入介面</h2>

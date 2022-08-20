@@ -13,7 +13,7 @@
       <el-sub-menu index="1">
         <template #title>
           <el-icon><Menu /></el-icon>
-          選單
+          MENU
         </template>
 
         <el-sub-menu index="1-1">
@@ -68,11 +68,15 @@
 
 <script lang="ts" setup>
 import router from '@/router';
+import { error } from 'console';
+import { watch } from 'fs';
 import { onMounted, reactive, ref } from 'vue';
+import { useStore } from 'vuex';
 import { getUserInfo } from '../api/index';
 
 const activeIndex = ref('1');
 const activeIndex2 = ref('1');
+const store = useStore();
 /**
  * props
  */
@@ -91,7 +95,7 @@ interface BaseData {
 }
 const baseData = reactive<BaseData>({
   show: false,
-  loginType: localStorage.getItem('token'),
+  loginType: store.state.loginType,
   userInfo: {
     name: '',
     headImg: '',
@@ -119,13 +123,15 @@ const isShowUserInfo = (val: boolean) => {
   baseData.show = val;
 };
 
-const getUserInfoData = async () => {
-  const { data: res } = await getUserInfo();
-  console.log(res);
+const getUserInfoData = async (): Promise<void> => {
+  const res: any = await getUserInfo();
   if (res?.data.headImg && res?.data.name) {
     console.log('ok');
     baseData.userInfo.name = res?.data.name;
     baseData.userInfo.headImg = res?.data.headImg;
+  } else {
+    console.log('fail');
+    baseData.loginType = 'custom';
   }
 };
 
@@ -142,7 +148,7 @@ const loginOut = () => {
   flex-direction: column;
   position: absolute;
   right: 0;
-  bottom: -78px;
+  bottom: -100px;
   background-color: #fff;
   border: 5px;
   box-shadow: 0 4px 8px 0 rgb(7 17 27 / 10%);
@@ -177,7 +183,7 @@ const loginOut = () => {
   .user {
     display: flex;
     justify-content: center;
-    width: 1rem;
+    font-size: large;
 
     img {
       width: 45px;

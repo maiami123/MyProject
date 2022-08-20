@@ -13,9 +13,9 @@
     <el-sub-menu index="1">
       <template #title>
         <el-icon><Document /></el-icon>
-        <span>資料管理</span>
+        <span>音樂世界</span>
       </template>
-      <el-menu-item index="searchSomething">查詢功能展示</el-menu-item>
+      <el-menu-item index="searchSomething">推薦影片</el-menu-item>
       <el-menu-item index="musicTab">樂譜庫</el-menu-item>
       <el-menu-item index="myMusic">我的樂譜</el-menu-item>
     </el-sub-menu>

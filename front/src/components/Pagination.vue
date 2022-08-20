@@ -14,6 +14,7 @@ const { currentChange } = defineProps(['currentChange']);
   justify-content: center;
   margin-top: 20px;
   color: #fff;
+  font-size: large;
 
   .pre {
     background-color: #409eff;

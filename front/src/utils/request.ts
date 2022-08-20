@@ -1,6 +1,7 @@
 import router from '@/router/index';
 import axios, { AxiosRequestConfig } from 'axios';
 import { ElMessage } from 'element-plus';
+import { useStore } from 'vuex';
 /**
  * 創建axios實例
  */
@@ -10,7 +11,6 @@ const service = axios.create({
   baseURL: host,
   timeout: 3000,
 });
-
 /**
  * 請求攔截
  */
@@ -29,16 +29,21 @@ service.interceptors.request.use(config => {
 service.interceptors.response.use(res => {
   const { code, data, message } = res.data;
   if (code == 0) {
-    return res;
-  } else {
+  } else if(message == '身份認證失敗'){
+    ElMessage({
+      message: '目前為遊客模式',
+      type: 'warning',
+    });
+    localStorage.setItem('token','custom')
+    
+    // router.push('/login');
+  }else{
     ElMessage({
       message: message,
       type: 'error',
     });
   }
-  if (message == '身分認證失敗') {
-    router.push('/login');
-  }
+  return res;
 });
 
 /**
